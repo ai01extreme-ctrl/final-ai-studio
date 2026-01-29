@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 영상 제작은 SPOOP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .logo {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 60px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            font-weight: 400;
+            display: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .tool-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            padding: 30px;
+            font-size: 1em;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+            line-height: 1.4;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .tool-button:active {
+            transform: translateY(-2px);
+        }
+
+        .tool-button:nth-child(1) {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+        }
+
+        .tool-button:nth-child(2) {
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff6b9d 100%);
+        }
+
+        .tool-button:nth-child(3) {
+            background: linear-gradient(135deg, #ffa07a 0%, #ff7f50 100%);
+        }
+
+        .tool-button:nth-child(4) {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        }
+
+        .tool-button:nth-child(5) {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+        }
+
+        .button-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .button-text {
+            font-size: 0.95em;
+            word-break: keep-all;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-emoji {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-link span:last-child {
+            color: #999;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .category-section {
+                margin-bottom: 50px;
+            }
+
+            .category-title {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            }
+
+            .button-container {
+                gap: 20px;
+            }
+
+            .tool-button {
+                width: 150px;
+                height: 150px;
+                padding: 20px;
+            }
+
+            .button-icon {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+
+            .button-text {
+                font-size: 0.85em;
+            }
+
+            .footer-links {
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            .footer-emoji {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tool-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .footer-links {
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">SPOOP</div>
+        <h1>AI 영상 제작은<br>SPOOP</h1>
+        <p class="subtitle">식품·영양제·이너뷰티도 제작</p>
+        
+        <div class="category-section">
+            <h2 class="category-title">음악 생성</h2>
+            <div class="button-container">
+                <a href="https://aistudio.google.com/app/apps/drive/15mtyq9mKzLCu6yG2H71zS4h-UPLyT6Fl?showPreview=true&showAssistant=true" 
+                   class="tool-button" 
+                   target="_blank">
+                    <span class="button-icon">🎵</span>
+                    <span class="button-text">Suno 가사<br>장르 생성기</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">이미지 생성</h2>
+            <div class="button-container">
+                <a href="https://opal.google/?flow=drive:/1xLORY57KqdUg7Rq72wYBztGfliRAz8Xl&shared&mode=app" 
+                   class="tool-button" 
+                   target="_blank">
+                    <span class="button-icon">🎨</span>
+                    <span class="button-text">애니 일관성<br>유지 프로그램</span>
+                </a>
+                
+                <a href="https://opal.google/?flow=drive:/1Pt-nbIVVZ5Tj07ZOWjIwOLcGslnVA4iW&shared&mode=app" 
+                   class="tool-button" 
+                   target="_blank">
+                    <span class="button-icon">👤</span>
+                    <span class="button-text">캐릭터 시트<br>생성기</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">프롬프트 생성</h2>
+            <div class="button-container">
+                <a href="https://aistudio.google.com/app/apps/drive/1OU4RPIKWu1QTtAkBsoLY33wUKk7UlF3o?showPreview=true&showAssistant=true" 
+                   class="tool-button" 
+                   target="_blank">
+                    <span class="button-icon">🎬</span>
+                    <span class="button-text">영상 AI<br>프롬프트 작성기</span>
+                </a>
+                
+                <a href="https://ai.studio/apps/drive/1ZpDxCSH9p8vtp5VMilEYePgd5RC9YPGr" 
+                   class="tool-button" 
+                   target="_blank">
+                    <span class="button-icon">✨</span>
+                    <span class="button-text">캐릭터 고정<br>프롬프트 생성기</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://suno.com/create" class="footer-link" target="_blank">
+                <span class="footer-emoji">🎵</span>
+                <span>Suno 바로가기</span>
+            </a>
+            <a href="https://higgsfield.ai/image/nano_banana_2" class="footer-link" target="_blank">
+                <span class="footer-emoji">🎨</span>
+                <span>higgsfield 바로가기</span>
+            </a>
+            <a href="https://cafe.naver.com/newcreators?tc=shared_link" class="footer-link" target="_blank">
+                <span class="footer-emoji">☕</span>
+                <span>스풉 커뮤니티</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
